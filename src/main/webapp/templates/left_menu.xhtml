@@ -6,14 +6,16 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet library="css" name="style_main.css"  />
+        <h:outputStylesheet library="css" name="style_main.css" />
     </h:head>
     <h:body>
         <ui:composition>
             <h4>Жанры</h4>
-                <h:dataTable value="#{genres.genreList}" var="g">
+                <h:dataTable value="#{genres.genreList}" var="g" styleClass="genres">
                     <h:column>
-                        #{g.name}
+                       <h:link value="${g.name}">
+                           <f:param name="genre_id" value="${g.id}"/>
+                       </h:link>
                     </h:column>
                 </h:dataTable>
         </ui:composition>
